@@ -207,3 +207,235 @@
     font-size: 2rem;
   }
 }
+
+/* --- ESTILOS DE PESTAÑAS (TABS) --- */
+.tabs-section {
+  margin-top: -3.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 20;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: var(--white);
+  color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn.active {
+  background: var(--secondary);
+  color: var(--white);
+  box-shadow: 0 6px 20px rgba(0, 196, 204, 0.3);
+}
+
+/* --- ESTILOS DE BÚSQUEDA --- */
+.consulta-form {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.search-group-container {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.search-input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input-wrapper .form-control {
+  background: var(--white);
+}
+
+.btn-search {
+  padding: 0 2rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-search:hover {
+  background: var(--secondary);
+  box-shadow: 0 4px 12px rgba(0, 196, 204, 0.2);
+}
+
+.mensaje-consulta {
+  text-align: center;
+  color: #ef4444;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* --- GRID DE CITAS DE PACIENTE --- */
+.citas-list-section {
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--light);
+  padding-top: 2rem;
+}
+
+.citas-list-title {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.citas-paciente-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.cita-paciente-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cita-paciente-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #94a3b8; /* Default */
+}
+
+/* Bordes coloridos según estado */
+.cita-paciente-card.pendiente::before { background: #eab308; }
+.cita-paciente-card.confirmada::before { background: #3b82f6; }
+.cita-paciente-card.completada::before { background: #22c55e; }
+.cita-paciente-card.cancelada::before { background: #ef4444; }
+
+.cita-paciente-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.cita-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.status-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.pendiente { background: #fef9c3; color: #854d0e; }
+.status-badge.confirmada { background: #dbeafe; color: #1e40af; }
+.status-badge.completada { background: #dcfce7; color: #166534; }
+.status-badge.cancelada { background: #fee2e2; color: #991b1b; }
+
+.cita-fecha-hora {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.cita-card-body {
+  font-size: 0.95rem;
+  color: var(--dark);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cita-card-body p {
+  margin: 0;
+}
+
+.cita-motivo {
+  margin-top: 0.5rem !important;
+  font-style: italic;
+  color: #475569;
+  background: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border-left: 2px solid #cbd5e1;
+}
+
+.cita-card-actions {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-cancel-appointment {
+  background: none;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel-appointment:hover {
+  background: #ef4444;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+}
+

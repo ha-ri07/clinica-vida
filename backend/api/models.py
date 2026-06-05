@@ -47,6 +47,7 @@ class Cita(models.Model):
     ]
     
     nombre = models.CharField(max_length=150)
+    cedula = models.CharField(max_length=20, default="", verbose_name="Cédula de Ciudadanía")
     email = models.EmailField()
     telefono = models.CharField(max_length=20)
     especialidad = models.ForeignKey(Especialidad, on_delete=models.SET_NULL, null=True)

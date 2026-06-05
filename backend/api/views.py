@@ -72,8 +72,8 @@ class CitaViewSet(viewsets.ModelViewSet):
     queryset = Cita.objects.select_related('especialidad', 'doctor')
     serializer_class = CitaSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['estado', 'especialidad', 'doctor']
-    search_fields = ['nombre', 'email']
+    filterset_fields = ['estado', 'especialidad', 'doctor', 'cedula']
+    search_fields = ['nombre', 'email', 'cedula']
     ordering_fields = ['fecha', 'creado_en']
     ordering = ['-creado_en']
     

@@ -13,6 +13,13 @@ Doctor.objects.all().delete()
 # Crear especialidades
 especialidades = [
     {
+        'nombre': 'Medicina General',
+        'descripcion': 'Atención médica primaria y preventiva para pacientes de todas las edades, enfocada en la promoción de la salud y el diagnóstico temprano.',
+        'icono': 'FaUserMd',
+        'color': '#0d9488',
+        'servicios': ['Consulta Médica General', 'Chequeo Médico Preventivo', 'Lectura de Exámenes', 'Certificados Médicos']
+    },
+    {
         'nombre': 'Cardiología',
         'descripcion': 'Diagnóstico y tratamiento de enfermedades del corazón y sistema cardiovascular.',
         'icono': 'FaHeart',

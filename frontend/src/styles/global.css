@@ -54,3 +54,26 @@ ul {
   display: flex;
   flex-direction: column;
 }
+
+/* Compensar altura del Header + Top-bar */
+.home-page,
+.citas-page,
+.doctores-page,
+.especialidades-page,
+.admin-citas-page,
+.quienes-somos-page,
+.contacto-page {
+  padding-top: 115px !important;
+}
+
+@media (max-width: 768px) {
+  .home-page,
+  .citas-page,
+  .doctores-page,
+  .especialidades-page,
+  .admin-citas-page,
+  .quienes-somos-page,
+  .contacto-page {
+    padding-top: 130px !important; /* Más espacio en móvil porque el contenido se acomoda verticalmente */
+  }
+}

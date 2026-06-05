@@ -13,15 +13,69 @@
   backdrop-filter: blur(10px);
   z-index: 1000;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-  padding: 1rem 0;
+  padding: 0;
   transition: all 0.3s ease;
+}
+
+/* Barra superior (Top Bar) */
+.top-bar {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-contact {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact-item {
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+  color: var(--secondary);
+}
+
+.whatsapp-item:hover {
+  color: #22c55e !important;
+}
+
+.whatsapp-icon {
+  color: #22c55e;
+}
+
+.top-bar-info {
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+/* Ocultar barra superior en scroll para optimizar espacio */
+.header.scrolled .top-bar {
+  display: none;
 }
 
 /* Efecto cuando el navbar tiene scroll */
 .header.scrolled {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.98);
-  padding: 0.8rem 0;
+  padding: 0;
 }
 
 .navbar {
@@ -29,6 +83,12 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 1rem 0;
+  transition: padding 0.3s ease;
+}
+
+.header.scrolled .navbar {
+  padding: 0.7rem 0;
 }
 
 /* --- LOGO --- */

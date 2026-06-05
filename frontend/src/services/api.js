@@ -68,12 +68,17 @@ export const doctoresService = {
 export const citasService = {
   getAll: () => apiFetch('/citas/'),
   getById: (id) => apiFetch(`/citas/${id}/`),
+  getByCedula: (cedula) => apiFetch(`/citas/?cedula=${encodeURIComponent(cedula)}`),
   create: (data) => apiFetch('/citas/', { 
     method: 'POST', 
     body: JSON.stringify(data) 
   }),
   update: (id, data) => apiFetch(`/citas/${id}/`, { 
     method: 'PUT', 
+    body: JSON.stringify(data) 
+  }),
+  patch: (id, data) => apiFetch(`/citas/${id}/`, { 
+    method: 'PATCH', 
     body: JSON.stringify(data) 
   }),
   delete: (id) => apiFetch(`/citas/${id}/`, { 

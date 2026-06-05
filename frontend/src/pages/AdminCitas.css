@@ -1,0 +1,439 @@
+/* src/pages/AdminCitas.css */
+
+.admin-citas-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.hero-admin {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  padding: 3rem 2rem;
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hero-admin-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.hero-admin h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.hero-admin p {
+  font-size: 1rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.btn-sync {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.btn-sync:hover {
+  background: var(--white);
+  color: #0f172a;
+}
+
+.spin {
+  animation: spin-animation 1s linear infinite;
+}
+
+@keyframes spin-animation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- TARJETAS DE MÉTRICAS --- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: -2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.metric-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-info h3 {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0 0 0.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Colores específicos para métricas */
+.metric-card.total .metric-icon { background: #eff6ff; color: #3b82f6; }
+.metric-card.total { border-bottom: 4px solid #3b82f6; }
+
+.metric-card.pendiente .metric-icon { background: #fef9c3; color: #ca8a04; }
+.metric-card.pendiente { border-bottom: 4px solid #eab308; }
+
+.metric-card.confirmada .metric-icon { background: #dcfce7; color: #16a34a; }
+.metric-card.confirmada { border-bottom: 4px solid #22c55e; }
+
+.metric-card.cancelada .metric-icon { background: #fee2e2; color: #dc2626; }
+.metric-card.cancelada { border-bottom: 4px solid #ef4444; }
+
+/* --- FILTROS Y BUSCADOR --- */
+.filters-container {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.filter-group label svg {
+  color: var(--primary);
+}
+
+.filter-group select {
+  padding: 0.85rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: var(--white);
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* --- TABLA ADMINISTRATIVA --- */
+.table-responsive {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e2e8f0;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.admin-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Estilos de datos de pacientes y médicos */
+.patient-name {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.patient-id {
+  font-size: 0.8rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.patient-contact {
+  font-size: 0.85rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.patient-contact:last-child {
+  margin-bottom: 0;
+}
+
+.med-spec {
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.med-doc {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.appointment-date {
+  font-weight: 600;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.appointment-time {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+/* Fila cancelada difuminada */
+.admin-table tbody tr.table-row-cancelada {
+  opacity: 0.7;
+}
+
+/* BOTONES ACCIONES */
+.action-buttons-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-action {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.btn-action.confirm {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.btn-action.confirm:hover {
+  background-color: #3b82f6;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+}
+
+.btn-action.complete {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.btn-action.complete:hover {
+  background-color: #22c55e;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+}
+
+.btn-action.cancel {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.btn-action.cancel:hover {
+  background-color: #ef4444;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+}
+
+.btn-action.delete {
+  background-color: #f1f5f9;
+  color: #64748b;
+  padding: 0.5rem;
+}
+
+.btn-action.delete:hover {
+  background-color: #ef4444;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+}
+
+/* Estados de Carga, Error y Vacíos */
+.admin-loading, .admin-no-results, .admin-error-message {
+  padding: 4rem;
+  text-align: center;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.admin-error-message {
+  background: #fef2f2;
+  border-color: #fee2e2;
+  color: #dc2626;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-admin h1 {
+    font-size: 1.8rem;
+  }
+  
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-admin {
+    padding: 2rem 1.5rem;
+  }
+  
+  .filters-container {
+    padding: 1.25rem;
+  }
+}

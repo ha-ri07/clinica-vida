@@ -28,7 +28,7 @@ class CitaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cita
         fields = [
-            'id', 'nombre', 'email', 'telefono', 'especialidad', 
+            'id', 'nombre', 'cedula', 'email', 'telefono', 'especialidad', 
             'especialidad_nombre', 'doctor', 'doctor_nombre', 
             'fecha', 'hora', 'motivo', 'estado', 'creado_en', 'actualizado_en'
         ]
@@ -40,6 +40,6 @@ class CitaCrearSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cita
         fields = [
-            'nombre', 'email', 'telefono', 'especialidad', 
+            'nombre', 'cedula', 'email', 'telefono', 'especialidad', 
             'doctor', 'fecha', 'hora', 'motivo'
         ]
